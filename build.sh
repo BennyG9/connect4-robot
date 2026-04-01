@@ -9,7 +9,7 @@ mkdir -p build
 cd build || { echo "Failed to enter build folder"; exit 1; }
 
 # Compile the module
-c++ -O2 -Wall -shared -std=c++17 -fPIC \
+nice -n 15 taskset -c 0 c++ -O0 -Wall -shared -std=c++17 -fPIC \
 -I../ \
 -I/usr/include/python3.11 \
 ../Connect4AI.cpp ../bindings.cpp \
