@@ -18,6 +18,10 @@ Connect4AI::Connect4AI(){
         }
         COL_MASKS[r] = 0b1111111 << (7*r); //fill COL_MASKS
     }
+    for(int i = 0; i < COLS; i++){
+        print_board(ROW_MASKS[i], 0);
+        print_board(0, COL_MASKS[i]);
+    }
 } //constructor
 
 
