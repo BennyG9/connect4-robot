@@ -15,7 +15,7 @@ public:
 
     Connect4AI();
 
-    bool move_available(int c, int player, int opponent);
+    bool move_available(int c, uint64_t player, uint64_t opponent);
     uint64_t get_move(int c, uint64_t player, uint64_t opponent);
     vector<int> moves_available(uint64_t player, uint64_t opponent);
     bool check_win(uint64_t player);
@@ -27,8 +27,8 @@ public:
     vector<int> fill_feat_vec(uint64_t player, uint64_t opponent);
     vector<double> minimax(uint64_t player, uint64_t opponent, vector<int> weights, int depth, double alpha=-numeric_limits<double>::infinity(), double beta=numeric_limits<double>::infinity(), bool root=true);
 
-    int ROW_MASKS[] = {0,0,0,0,0,0,0};
-    int COL_MASKS[] = {0,0,0,0,0,0,0};
+    int ROW_MASKS[7] = {0,0,0,0,0,0,0};
+    int COL_MASKS[7] = {0,0,0,0,0,0,0};
 
 };
 
