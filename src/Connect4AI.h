@@ -11,8 +11,8 @@ public:
 
     static const int ROWS = 6;
     static const int COLS = 7;
-    int ROW_MASKS[ROWS];
-    int COL_MASKS[COLS];
+    int ROW_MASKS[] = {0,0,0,0,0,0,0};
+    int COL_MASKS[] = {0,0,0,0,0,0,0};
     vector<int> W = {100000000,1000,1000,10000,100000,5,10,15,20,15,10,5,5,5,10,10,15,15,-100000000,-1000,-1000,-10000,-100000,-5,-10,-15,-20,-15,-10,-5,-5,-5,-10,-10,-15,-15};
 
     Connect4AI();
