@@ -23,7 +23,8 @@ Connect4AI::Connect4AI(){
 
 bool Connect4AI::move_available(int c, int player, int opponent){
     int choice_mask = 0b0100000 << ((ROWS+1)*c);
-    return (player | opponent) & choice_mask == 0;
+    print_board(choice_mask, 0);
+    return ((player | opponent) & choice_mask) == 0;
 }
 
 
@@ -41,7 +42,7 @@ vector<int> Connect4AI::moves_available(int player, int opponent){
     int all_moves = player | opponent;
     int top_row = all_moves & ROW_MASKS[5];
     for(int c = 0; c < COLS; c++){
-        if(top_row & 0b0100000 << ((ROWS+1)*c) == 0){
+        if((top_row & 0b0100000 << ((ROWS+1)*c)) == 0){
             moves.push_back(c);
         }
     }
@@ -52,9 +53,9 @@ vector<int> Connect4AI::moves_available(int player, int opponent){
 bool Connect4AI::check_win(int player){
     int cols = player & (player << 1) & (player << 2) & (player << 3);
     int rows = player & (player << 7) & (player << 14) & (player << 21);
-    int u_diag = u_diag = player & (player << 8) & (player << 16) & (player << 24);
-    int d_diag = d_diag = player & (player << 6) & (player << 12) & (player << 18);
-    return cols | rows | u_diag | d_diag > 0;
+    int u_diag = player & (player << 8) & (player << 16) & (player << 24);
+    int d_diag = player & (player << 6) & (player << 12) & (player << 18);
+    return (cols | rows | u_diag | d_diag) > 0;
 }
 
 
@@ -93,7 +94,7 @@ void Connect4AI::print_board(int player, int opponent){
 int Connect4AI::model_query(int player, int opponent, vector<int> weights){
     vector<int> x = fill_feat_vec(player, opponent);
     int dot_product = 0;
-    for(int i = 0; i < x.size(); i++){
+    for(int i = 0; i < (int)x.size(); i++){
         dot_product += x.at(i) * weights.at(i);
     }
     return dot_product;
@@ -199,7 +200,7 @@ vector<double> Connect4AI::minimax(int player, int opponent, vector<int> weights
 
     int move;
     double value;
-    for(int i = 0; i < moves.size(); i++){
+    for(int i = 0; i < (int)moves.size(); i++){
         move = moves.at(i);
         if(depth == 0){
             value = model_query(player | move, opponent, W);
@@ -211,7 +212,7 @@ vector<double> Connect4AI::minimax(int player, int opponent, vector<int> weights
             int P = player | get_move(move, player, opponent);
             if(check_win(P)) value = numeric_limits<double>::infinity();
             else if((P | opponent) == 49) value = 0.;
-            else value = (int)(-1*(minimax(opponent, P, W, depth-1, alpha=(-beta), beta=(-alpha), root=false).at(0)));
+            else value = (int)(-1*(minimax(opponent, P, W, depth-1, (-beta), (-alpha), (false)).at(0)));
 
             if(value >= best_val){
                 best_val = value;

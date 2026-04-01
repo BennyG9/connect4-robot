@@ -22,14 +22,14 @@ class Connect4Game:
 
     def player_move(self, move):
         c = self.gameAI.get_move(move, self.player, self.opponent)
-        print(c)
+        print(type(move))
         self.player = self.player | c
         self.turn *= -1
         pass
 
     def computer_move(self):
         self.update_depth()
-        c = self.gameAI.minimax(self.opponent, self.player, self.gameAI.W, self.depth)
+        c = int(self.gameAI.minimax(self.opponent, self.player, self.gameAI.W, self.depth)[1])
         self.opponent = self.opponent | self.gameAI.get_move(c[1], self.player, self.opponent)
         self.turn *= -1
         return c[1]
