@@ -23,6 +23,8 @@ Connect4AI::Connect4AI(){
 
 bool Connect4AI::move_available(int c, int player, int opponent){
     int choice_mask = 0b0100000 << ((ROWS+1)*c);
+    printf("%i\n", c);
+    printf("CHOICE MASK: \n");
     print_board(choice_mask, 0);
     return ((player | opponent) & choice_mask) == 0;
 }
@@ -33,6 +35,8 @@ int Connect4AI::get_move(int c, int player, int opponent){
         return -1;
     }
     int all_moves = player | opponent;
+    printf("COL MASK: \n");
+    print_board(COL_MASKS[c], 0);
     return (all_moves & COL_MASKS[c]) + (1 << (ROWS+1)*c);
 }
 

@@ -22,7 +22,7 @@ class Connect4Game:
 
     def player_move(self, move):
         c = self.gameAI.get_move(move, self.player, self.opponent)
-        print(type(move))
+        print(c)
         self.player = self.player | c
         self.turn *= -1
         pass
