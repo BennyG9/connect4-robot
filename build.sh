@@ -1,6 +1,8 @@
 #!/bin/bash
 # build.sh - Compile Connect4AI module for Python on Raspberry Pi
 
+echo "Building..."
+
 # Go to src folder
 cd src || { echo "src folder not found"; exit 1; }
 
