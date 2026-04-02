@@ -6,6 +6,7 @@
 #include <cstdint>
 #include <limits>
 #include <algorithm>
+#include <cinttypes>
 using namespace std;
 
 #include "Connect4AI.h"
@@ -22,6 +23,10 @@ Connect4AI::Connect4AI(){
         print_board(ROW_MASKS[i], 0);
         print_board(0, COL_MASKS[i]);
     }
+    for(int i = 0; i < COLS; i++) printf("%" PRIu64 "\n", COL_MASKS[i]);
+    printf("\n");
+    for(int i = 0; i < COLS; i++) printf("%" PRIu64 "\n", ROW_MASKS[i]);
+
 } //constructor
 
 

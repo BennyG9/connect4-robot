@@ -1,5 +1,6 @@
 #include <vector>
 #include <limits>
+#include <cstdint>
 using namespace std;
 
 #ifndef CONNECT4AI_H
@@ -27,8 +28,8 @@ public:
     vector<int> fill_feat_vec(uint64_t player, uint64_t opponent);
     vector<double> minimax(uint64_t player, uint64_t opponent, vector<int> weights, int depth, double alpha=-numeric_limits<double>::infinity(), double beta=numeric_limits<double>::infinity(), bool root=true);
 
-    int ROW_MASKS[7] = {0,0,0,0,0,0,0};
-    int COL_MASKS[7] = {0,0,0,0,0,0,0};
+    uint64_t ROW_MASKS[7] = {0,0,0,0,0,0,0};
+    uint64_t COL_MASKS[7] = {0,0,0,0,0,0,0};
 
 };
 
