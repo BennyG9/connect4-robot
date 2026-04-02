@@ -19,13 +19,13 @@ Connect4AI::Connect4AI(){
         }
         COL_MASKS[r] = ((uint64_t)0b1111111) << (7*r); //fill COL_MASKS
     }
-    for(int i = 0; i < COLS; i++){
-        print_board(ROW_MASKS[i], 0);
-        print_board(0, COL_MASKS[i]);
-    }
-    for(int i = 0; i < COLS; i++) printf("%" PRIu64 "\n", COL_MASKS[i]);
-    printf("\n");
-    for(int i = 0; i < COLS; i++) printf("%" PRIu64 "\n", ROW_MASKS[i]);
+//    for(int i = 0; i < COLS; i++){
+//        print_board(ROW_MASKS[i], 0);
+//        print_board(0, COL_MASKS[i]);
+//    }
+//    for(int i = 0; i < COLS; i++) printf("%" PRIu64 "\n", COL_MASKS[i]);
+//    printf("\n");
+//    for(int i = 0; i < COLS; i++) printf("%" PRIu64 "\n", ROW_MASKS[i]);
 
 } //constructor
 
@@ -33,8 +33,8 @@ Connect4AI::Connect4AI(){
 bool Connect4AI::move_available(int c, uint64_t player, uint64_t opponent){
     uint64_t choice_mask = ((uint64_t)0b0100000) << ((ROWS+1)*c);
     //printf("%i\n", c);
-    printf("CHOICE MASK: \n");
-    print_board(choice_mask, 0);
+//    printf("CHOICE MASK: \n");
+//    print_board(choice_mask, 0);
     return ((player | opponent) & choice_mask) == 0;
 }
 
@@ -44,9 +44,9 @@ uint64_t Connect4AI::get_move(int c, uint64_t player, uint64_t opponent){
         return 0;
     }
     uint64_t all_moves = player | opponent;
-    printf("COL MASK: \n");
-    print_board(COL_MASKS[c], 0);
-    return (all_moves & COL_MASKS[c]) + (1 << (ROWS+1)*c);
+//    printf("COL MASK: \n");
+//    print_board(COL_MASKS[c], 0);
+    return (all_moves & COL_MASKS[c]) + (((uint64_t)1) << (ROWS+1)*c);
 }
 
 
@@ -244,7 +244,9 @@ vector<double> Connect4AI::minimax(uint64_t player, uint64_t opponent, vector<in
 }
 
 
-
+vector<int> Connect4AI::get_def_weights(){
+    return W;
+}
 
 
 
