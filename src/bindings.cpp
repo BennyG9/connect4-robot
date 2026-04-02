@@ -12,6 +12,6 @@ PYBIND11_MODULE(connect4ai, m){
     .def("get_move", &Connect4AI::get_move)
     .def("minimax", &Connect4AI::minimax)
     .def("check_win", &Connect4AI::check_win)
-    .def("print_board", &Connect4AI::print_board);
+    .def("print_board", &Connect4AI::print_board)
     .def("get_def_weights", &Connect4AI::get_def_weights);
 }
