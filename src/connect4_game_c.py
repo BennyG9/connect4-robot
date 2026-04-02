@@ -1,5 +1,6 @@
 from src.connect4ai import Connect4AI
 import random as rand
+import time
 
 class Connect4Game:
 
@@ -7,10 +8,12 @@ class Connect4Game:
 
     def __init__(self):
         self.gameAI = Connect4AI()
+        self.runtime = []
         #self.new_game()
         pass
 
     def new_game(self, start_turn=0, start_depth=5):
+        self.runtime = []
         self.player = 0
         self.opponent = 0
         self.depth = start_depth
@@ -28,13 +31,20 @@ class Connect4Game:
         pass
 
     def computer_move(self):
-        self.update_depth()
+        t = time.time()
+
         c = int(self.gameAI.minimax(self.opponent, self.player, self.gameAI.get_def_weights(), self.depth)[1])
-        self.opponent = self.opponent | self.gameAI.get_move(c[1], self.player, self.opponent)
+        self.opponent = self.opponent | self.gameAI.get_move(c, self.player, self.opponent)
         self.turn *= -1
-        return c[1]
+
+        t = time.time() - t
+        self.runtime.append(t)
+        self.update_depth()
+        return c
 
     def update_depth(self):
+        board = self.player | self.opponent
+        num_moves = 2 * len(self.runtime)
         pass
 
     def check_win(self):

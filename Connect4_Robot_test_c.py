@@ -12,6 +12,8 @@ def run_command(serial, cmd, arg):
 
 DEBUG = 1
 
+DEPTH = 7
+
 ser = SerialInterface()
 
 if __name__ == "__main__":
@@ -19,7 +21,7 @@ if __name__ == "__main__":
     if(len(sys.argv) == 1):
         #print("ERROR: MISSING ARGUMENT(S)")
         game = Connect4Game()
-        game.new_game()
+        game.new_game(start_depth=DEPTH)
         while(True):
             if(game.turn == 1):
                 c = int(input("YOUR MOVE: "))
