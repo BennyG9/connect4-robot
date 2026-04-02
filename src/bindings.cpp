@@ -1,5 +1,6 @@
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
+#include <limits>
 
 #include "Connect4AI.h"
 
@@ -10,7 +11,14 @@ PYBIND11_MODULE(connect4ai, m){
     .def(py::init<>())
 
     .def("get_move", &Connect4AI::get_move)
-    .def("minimax", &Connect4AI::minimax)
+    .def("minimax", &Connect4AI::minimax,
+        py::arg("player"),
+        py::arg("opponent"),
+        py::arg("weights"),
+        py::arg("depth"),
+        py::arg("alpha")=-std::numeric_limits<double>::infinity(),
+        py::arg("beta")=std::numeric_limits<double>::infinity(),
+        py::arg("root")=true)
     .def("check_win", &Connect4AI::check_win)
     .def("print_board", &Connect4AI::print_board)
     .def("get_def_weights", &Connect4AI::get_def_weights);
