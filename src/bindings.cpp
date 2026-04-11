@@ -19,6 +19,7 @@ PYBIND11_MODULE(connect4ai, m){
         py::arg("alpha")=-std::numeric_limits<double>::infinity(),
         py::arg("beta")=std::numeric_limits<double>::infinity(),
         py::arg("root")=true)
+    .def("minimax_root", &Connect4AI::minimax_root, py::call_guard<py::gil_scoped_release>())
     .def("check_win", &Connect4AI::check_win)
     .def("print_board", &Connect4AI::print_board)
     .def("get_def_weights", &Connect4AI::get_def_weights)

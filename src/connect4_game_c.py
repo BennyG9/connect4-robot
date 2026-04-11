@@ -33,7 +33,7 @@ class Connect4Game:
     def computer_move(self):
         t = time.time()
 
-        val, c = (self.gameAI.minimax(self.opponent, self.player, self.gameAI.get_def_weights(), self.depth))
+        val, c = (self.gameAI.minimax_root(self.opponent, self.player, self.gameAI.get_def_weights(), self.depth))
         c = int(c)
 
         #self.print_board_data()

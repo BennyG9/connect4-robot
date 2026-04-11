@@ -7,6 +7,7 @@
 #include <limits>
 #include <algorithm>
 #include <cinttypes>
+#include <thread>
 using namespace std;
 
 #include "Connect4AI.h"
@@ -232,6 +233,39 @@ vector<double> Connect4AI::minimax(uint64_t player, uint64_t opponent, vector<in
                 alpha = max(alpha, value);
                 if(alpha >= beta) break;
             }
+        }
+    }
+
+    vector<double> out = {best_val, (double)best_move};
+    return out;
+}
+
+vector<double> Connect4AI::minimax_root(uint64_t player, uint64_t opponent, vector<int> weights, int depth)}
+    vector<int> moves = moves_available(player, opponent);
+    int num_moves = (int)moves.size();
+    vector<double> values(num_moves);
+    vector<thread> threads;
+
+    for(int i = 0; i < num_moves; i++){
+        threads.emplace_back([&,i,player,opponent,depth]() {
+            uint64_t move = get_move(moves[i], player, opponent);
+            uint64_t O = opponent;
+            uint64_t P = player | move;
+            vector<double> result = minimax(O, P, weights, depth-1);
+            values[i] = -result[0];
+        });
+    }
+
+    for(auto &t: threads){
+        t.join();
+    }
+
+    double best_val = -numeric_limits::infinity();
+    int best_move;
+    for(int i = 0; i < num_moves; i++){
+        if(values[i] > best_val){
+            best_val = values[i];
+            best_move = moves[i];
         }
     }
 
