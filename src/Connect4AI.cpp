@@ -186,10 +186,8 @@ vector<int> Connect4AI::fill_feat_vec(uint64_t player, uint64_t opponent){
     x.push_back((int)my_open_doubles);
     x.push_back((int)my_double_threats);
 
-    for(int i = 0; i < COLS; i++){
-        x.push_back(__builtin_popcount(player & COL_MASKS[i]));
-        if(i < COLS - 1) x.push_back(__builtin_popcount(player & ROW_MASKS[i]));
-    }
+    for(int i = 0; i < COLS; i++) x.push_back(__builtin_popcount(player & COL_MASKS[i]));
+    for(int i = 0; i < ROWS; i++) x.push_back(__builtin_popcount(player & ROW_MASKS[i]));
 
     x.push_back(op_wins);
     x.push_back(op_open_3s);
@@ -197,10 +195,8 @@ vector<int> Connect4AI::fill_feat_vec(uint64_t player, uint64_t opponent){
     x.push_back((int)op_open_doubles);
     x.push_back((int)op_double_threats);
 
-    for(int i = 0; i < COLS; i++){
-        x.push_back(__builtin_popcount(opponent & COL_MASKS[i]));
-        if(i < COLS - 1) x.push_back(__builtin_popcount(opponent & ROW_MASKS[i]));
-    }
+    for(int i = 0; i < COLS; i++) x.push_back(__builtin_popcount(opponent & COL_MASKS[i]));
+    for(int i = 0; i < ROWS; i++) x.push_back(__builtin_popcount(opponent & COL_MASKS[i]));
 
     return x;
 }

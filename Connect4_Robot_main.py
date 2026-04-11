@@ -1,5 +1,5 @@
 from src.serial_interface import SerialInterface
-from src.connect4_game import Connect4Game
+from src.connect4_game_c import Connect4Game
 
 import time
 
@@ -13,7 +13,7 @@ def cleanup(serial=None):
 
 def run_robot(serial, game):
 
-    game.new_game(start_depth=5)
+    game.new_game(start_depth=7)
 
     if(game.turn == 1): print("Player's turn...")
     else: print("Computer's turn...")
