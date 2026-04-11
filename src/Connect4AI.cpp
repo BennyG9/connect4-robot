@@ -240,7 +240,7 @@ vector<double> Connect4AI::minimax(uint64_t player, uint64_t opponent, vector<in
     return out;
 }
 
-vector<double> Connect4AI::minimax_root(uint64_t player, uint64_t opponent, vector<int> weights, int depth)}
+vector<double> Connect4AI::minimax_root(uint64_t player, uint64_t opponent, vector<int> weights, int depth){
     vector<int> moves = moves_available(player, opponent);
     int num_moves = (int)moves.size();
     vector<double> values(num_moves);
