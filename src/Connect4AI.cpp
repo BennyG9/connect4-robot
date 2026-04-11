@@ -260,7 +260,7 @@ vector<double> Connect4AI::minimax_root(uint64_t player, uint64_t opponent, vect
         t.join();
     }
 
-    double best_val = -numeric_limits::infinity();
+    double best_val = -numeric_limits<double>::infinity();
     int best_move;
     for(int i = 0; i < num_moves; i++){
         if(values[i] > best_val){
