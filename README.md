@@ -14,7 +14,7 @@ An autonomous robot designed to play Connect 4 against a human opponent using pi
 **Completed:** 
 - Mechanical design and PID controls
 - Game logic and bitboard representation
-- AI minimax algorithm, optimized C++ code on Raspberry Pi
+- AI minimax algorithm, optimized threaded C++ code on Raspberry Pi
 - IR sensor circuitry & digital filtering for move detection
 - Raspberry Pi and Arduino UART communication
 - Full system integration
