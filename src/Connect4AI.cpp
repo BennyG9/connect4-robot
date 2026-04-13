@@ -152,7 +152,7 @@ vector<int> Connect4AI::fill_feat_vec(uint64_t player, uint64_t opponent){
          op_possible_3s = op_possible_3s | op_open_seq;
     }
 
-    uint64_t open_spaces = ~(player | opponent);
+    uint64_t open_spaces = BOARD_MASK & ~(player | opponent);
     uint64_t immediately_open_spaces = 0;
     for(int c = 0; c < COLS; c++){
         uint64_t spot = get_move(c, player, opponent);
