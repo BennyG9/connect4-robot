@@ -32,6 +32,7 @@ public:
 
     uint64_t ROW_MASKS[7] = {0,0,0,0,0,0,0};
     uint64_t COL_MASKS[7] = {0,0,0,0,0,0,0};
+    uint64_t BOARD_MASK = 0;
 
 };
 

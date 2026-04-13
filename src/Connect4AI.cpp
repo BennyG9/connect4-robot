@@ -18,8 +18,11 @@ Connect4AI::Connect4AI(){
         for(int c = 0; c < COLS; c++){
             ROW_MASKS[r] += (((uint64_t)1) << (c*COLS + r)); //fill ROW_MASKS
         }
-        COL_MASKS[r] = ((uint64_t)0b1111111) << (7*r); //fill COL_MASKS
+        COL_MASKS[r] = ((uint64_t)0b1111111) << (7*r); //fill COL_MASK
+        BOARD_MASK += (((uint64_t)0b0111111) << (7*r)); //fill BOARD_MASK
     }
+
+    print_board(BOARD_MASK, 0);
 //    for(int i = 0; i < COLS; i++){
 //        print_board(ROW_MASKS[i], 0);
 //        print_board(0, COL_MASKS[i]);
