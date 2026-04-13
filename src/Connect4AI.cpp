@@ -206,7 +206,7 @@ vector<int> Connect4AI::fill_feat_vec(uint64_t player, uint64_t opponent){
 }
 
 
-void debug(uint64_t player, uint64_t opponent){
+void Connect4AI::debug(uint64_t player, uint64_t opponent){
 
     uint64_t my_possible_3s = 0;
     uint64_t op_possible_3s = 0;
