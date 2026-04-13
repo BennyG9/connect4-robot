@@ -239,7 +239,7 @@ void Connect4AI::debug(uint64_t player, uint64_t opponent){
     int op_open_3s = __builtin_popcount(op_possible_3s & open_spaces);
 
     print_board(my_possible_3s & open_spaces, 0);
-    prinf("\n");
+    printf("\n");
     print_board(0, op_possible_3s & open_spaces);
 
 }
