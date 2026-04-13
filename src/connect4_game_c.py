@@ -114,7 +114,7 @@ class Connect4Game:
 
         print()
 
-        self.gameAI.debug()
+        self.gameAI.debug(self.player, self.opponent)
 
         pass
 

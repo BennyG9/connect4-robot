@@ -81,7 +81,7 @@ int Connect4AI::num_wins(uint64_t player){
     uint64_t rows = player & (player << 7) & (player << 14) & (player << 21);
     uint64_t u_diag = player & (player << 8) & (player << 16) & (player << 24);
     uint64_t d_diag = player & (player << 6) & (player << 12) & (player << 18);
-    return __builtin_popcount(cols) + __builtin_popcount(rows) + __builtin_popcount(u_diag) + __builtin_popcount(d_diag);
+    return __builtin_popcountll(cols) + __builtin_popcountll(rows) + __builtin_popcountll(u_diag) + __builtin_popcountll(d_diag);
 }
 
 
@@ -129,8 +129,8 @@ int Connect4AI::user_query(){
 vector<int> Connect4AI::fill_feat_vec(uint64_t player, uint64_t opponent){
     vector<int> x;
 
-    int my_wins = __builtin_popcount(wins(player));
-    int op_wins = __builtin_popcount(wins(opponent));
+    int my_wins = __builtin_popcountll(wins(player));
+    int op_wins = __builtin_popcountll(wins(opponent));
 
     uint64_t my_possible_3s = 0;
     uint64_t op_possible_3s = 0;
@@ -159,11 +159,11 @@ vector<int> Connect4AI::fill_feat_vec(uint64_t player, uint64_t opponent){
         if(spot >= 0) immediately_open_spaces = immediately_open_spaces | spot;
     }
 
-    int my_open_3s = __builtin_popcount(my_possible_3s & open_spaces);
-    int op_open_3s = __builtin_popcount(op_possible_3s & open_spaces);
+    int my_open_3s = __builtin_popcountll(my_possible_3s & open_spaces);
+    int op_open_3s = __builtin_popcountll(op_possible_3s & open_spaces);
 
-    int my_threats = __builtin_popcount(my_possible_3s & immediately_open_spaces);
-    int op_threats = __builtin_popcount(op_possible_3s & immediately_open_spaces);
+    int my_threats = __builtin_popcountll(my_possible_3s & immediately_open_spaces);
+    int op_threats = __builtin_popcountll(op_possible_3s & immediately_open_spaces);
 
     uint64_t my_open = my_possible_3s & open_spaces;
     uint64_t op_open = op_possible_3s & open_spaces;
@@ -179,10 +179,10 @@ vector<int> Connect4AI::fill_feat_vec(uint64_t player, uint64_t opponent){
         my_double_threats = my_double_threats | (my_im_open & (my_im_open << d));
         op_double_threats = op_double_threats | (op_im_open & (op_im_open << d));
     }
-    my_open_doubles = __builtin_popcount(my_open_doubles);
-    op_open_doubles = __builtin_popcount(op_open_doubles);
-    my_double_threats = __builtin_popcount(my_double_threats);
-    op_double_threats = __builtin_popcount(op_double_threats);
+    my_open_doubles = __builtin_popcountll(my_open_doubles);
+    op_open_doubles = __builtin_popcountll(op_open_doubles);
+    my_double_threats = __builtin_popcountll(my_double_threats);
+    op_double_threats = __builtin_popcountll(op_double_threats);
 
     x.push_back(my_wins);
     x.push_back(my_open_3s);
@@ -190,8 +190,8 @@ vector<int> Connect4AI::fill_feat_vec(uint64_t player, uint64_t opponent){
     x.push_back((int)my_open_doubles);
     x.push_back((int)my_double_threats);
 
-    for(int i = 0; i < COLS; i++) x.push_back(__builtin_popcount(player & COL_MASKS[i]));
-    for(int i = 0; i < ROWS; i++) x.push_back(__builtin_popcount(player & ROW_MASKS[i]));
+    for(int i = 0; i < COLS; i++) x.push_back(__builtin_popcountll(player & COL_MASKS[i]));
+    for(int i = 0; i < ROWS; i++) x.push_back(__builtin_popcountll(player & ROW_MASKS[i]));
 
     x.push_back(op_wins);
     x.push_back(op_open_3s);
@@ -199,8 +199,8 @@ vector<int> Connect4AI::fill_feat_vec(uint64_t player, uint64_t opponent){
     x.push_back((int)op_open_doubles);
     x.push_back((int)op_double_threats);
 
-    for(int i = 0; i < COLS; i++) x.push_back(__builtin_popcount(opponent & COL_MASKS[i]));
-    for(int i = 0; i < ROWS; i++) x.push_back(__builtin_popcount(opponent & COL_MASKS[i]));
+    for(int i = 0; i < COLS; i++) x.push_back(__builtin_popcountll(opponent & COL_MASKS[i]));
+    for(int i = 0; i < ROWS; i++) x.push_back(__builtin_popcountll(opponent & COL_MASKS[i]));
 
     return x;
 }
@@ -235,13 +235,15 @@ void Connect4AI::debug(uint64_t player, uint64_t opponent){
         if(spot >= 0) immediately_open_spaces = immediately_open_spaces | spot;
     }
 
-    int my_open_3s = __builtin_popcount(my_possible_3s & open_spaces);
-    int op_open_3s = __builtin_popcount(op_possible_3s & open_spaces);
+    int my_open_3s = __builtin_popcountll(my_possible_3s & open_spaces);
+    int op_open_3s = __builtin_popcountll(op_possible_3s & open_spaces);
 
-    print_board(my_possible_3s & open_spaces, 0);
-    printf("\n");
-    print_board(0, op_possible_3s & open_spaces);
-
+    //print_board(my_possible_3s & open_spaces, 0);
+    //printf("\n");
+    //print_board(0, op_possible_3s & open_spaces);
+    //printf("\n");
+    //printf("%u\n", __builtin_popcountll(my_possible_3s & open_spaces));
+    //printf("%u\n\n", __builtin_popcountll(op_possible_3s & open_spaces));
 }
 
 
