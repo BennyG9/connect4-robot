@@ -213,7 +213,7 @@ void Connect4AI::debug(uint64_t player, uint64_t opponent){
 
     uint64_t my_possible_3s = 0;
     uint64_t op_possible_3s = 0;
-    int dir[] = (1,6,7,8};
+    int dir[] = {1,6,7,8};
     for(int i = 0; i < 4; i++){
          int d = dir[i];
 
