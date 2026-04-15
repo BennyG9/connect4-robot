@@ -28,7 +28,7 @@ if __name__ == "__main__":
                 game.player_move(c)
             else:
                 game.computer_move()
-            game.print_board_data()
+            #game.print_board_data()
             game.print_game()
             win = game.check_win()
             if(not win): continue

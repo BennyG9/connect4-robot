@@ -25,7 +25,7 @@ class Connect4Game:
 
     def player_move(self, move):
         c = self.gameAI.get_move(move, self.player, self.opponent)
-        print(c)
+        #print(c)
         self.player = self.player | c
         self.turn *= -1
         pass
@@ -36,7 +36,7 @@ class Connect4Game:
         val, c = (self.gameAI.minimax_root(self.opponent, self.player, self.gameAI.get_def_weights(), self.depth))
         c = int(c)
 
-        #self.print_board_data()
+        self.print_board_data()
 
         print(c, val)
 

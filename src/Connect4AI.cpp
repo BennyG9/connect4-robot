@@ -134,7 +134,10 @@ vector<int> Connect4AI::fill_feat_vec(uint64_t player, uint64_t opponent){
 
     uint64_t my_possible_3s = 0;
     uint64_t op_possible_3s = 0;
-    for(int d = 1; d <= 7; d += 6){
+    int dir[] = {1, 6, 7, 8};
+    for(int i = 0; i < 4; i++){
+         int d = dir[i];
+
          uint64_t my_OOO_ = (player << d) & (player << 2*d) & (player << 3*d);
          uint64_t my_OO_O = (player << d) & (player << 2*d) & (player >> d);
          uint64_t my_O_OO = (player << d) & (player >> d) & (player >> 2*d);
@@ -210,7 +213,10 @@ void Connect4AI::debug(uint64_t player, uint64_t opponent){
 
     uint64_t my_possible_3s = 0;
     uint64_t op_possible_3s = 0;
-    for(int d = 1; d <= 7; d += 6){
+    int dir[] = (1,6,7,8};
+    for(int i = 0; i < 4; i++){
+         int d = dir[i];
+
          uint64_t my_OOO_ = (player << d) & (player << 2*d) & (player << 3*d);
          uint64_t my_OO_O = (player << d) & (player << 2*d) & (player >> d);
          uint64_t my_O_OO = (player << d) & (player >> d) & (player >> 2*d);
@@ -238,12 +244,12 @@ void Connect4AI::debug(uint64_t player, uint64_t opponent){
     int my_open_3s = __builtin_popcountll(my_possible_3s & open_spaces);
     int op_open_3s = __builtin_popcountll(op_possible_3s & open_spaces);
 
-    //print_board(my_possible_3s & open_spaces, 0);
-    //printf("\n");
-    //print_board(0, op_possible_3s & open_spaces);
-    //printf("\n");
-    //printf("%u\n", __builtin_popcountll(my_possible_3s & open_spaces));
-    //printf("%u\n\n", __builtin_popcountll(op_possible_3s & open_spaces));
+    print_board(my_possible_3s & open_spaces, 0);
+    printf("\n");
+    print_board(0, op_possible_3s & open_spaces);
+    printf("\n");
+    printf("%u\n", __builtin_popcountll(my_possible_3s & open_spaces));
+    printf("%u\n\n", __builtin_popcountll(op_possible_3s & open_spaces));
 }
 
 
