@@ -342,7 +342,7 @@ vector<double> Connect4AI::minimax_root(uint64_t player, uint64_t opponent, vect
 
     int forced = forced_move(player, opponent);
     if(forced >= 0){
-        printf("Forced: %u", forced);
+        printf("Forced: %u\n", forced);
         vector<double> out_f = {NULL, (double)forced};
         return out_f;
     }
