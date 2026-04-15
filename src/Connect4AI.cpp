@@ -209,7 +209,7 @@ vector<int> Connect4AI::fill_feat_vec(uint64_t player, uint64_t opponent){
 }
 
 
-int forced_move(uint64_t player, uint64_t opponent){
+int Connect4AI::forced_move(uint64_t player, uint64_t opponent){
     uint64_t my_possible_3s = 0;
     uint64_t op_possible_3s = 0;
     int dir[] = {1,6,7,8};

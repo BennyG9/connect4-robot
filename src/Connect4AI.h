@@ -30,6 +30,7 @@ public:
     vector<int> get_def_weights();
     vector<double> minimax_root(uint64_t player, uint64_t opponent, vector<int> weights, int depth);
     void debug(uint64_t player, uint64_t opponent);
+    int forced_move(uint64_t player, uint64_t opponent);
 
     uint64_t ROW_MASKS[7] = {0,0,0,0,0,0,0};
     uint64_t COL_MASKS[7] = {0,0,0,0,0,0,0};
