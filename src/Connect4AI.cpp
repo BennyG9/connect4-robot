@@ -233,7 +233,7 @@ int Connect4AI::forced_move(uint64_t player, uint64_t opponent){
          op_possible_3s = op_possible_3s | op_open_seq;
     }
 
-    uint64_t open_spaces = BOARD_MASK & ~(player | opponent);
+    //uint64_t open_spaces = BOARD_MASK & ~(player | opponent);
     uint64_t immediately_open_spaces = 0;
     for(int c = 0; c < COLS; c++){
         uint64_t spot = get_move(c, player, opponent);
@@ -250,6 +250,7 @@ int Connect4AI::forced_move(uint64_t player, uint64_t opponent){
     }else return -1;
 
     for(int c = 0; c < COLS; c++) if(my_threats & COL_MASKS[c]) return c;
+    return -1;
 }
 
 
@@ -279,24 +280,24 @@ void Connect4AI::debug(uint64_t player, uint64_t opponent){
     }
 
     uint64_t open_spaces = BOARD_MASK & ~(player | opponent);
-    uint64_t immediately_open_spaces = 0;
-    for(int c = 0; c < COLS; c++){
-        uint64_t spot = get_move(c, player, opponent);
-        if(spot >= 0) immediately_open_spaces = immediately_open_spaces | spot;
-    }
+    //uint64_t immediately_open_spaces = 0;
+    //for(int c = 0; c < COLS; c++){
+    //    uint64_t spot = get_move(c, player, opponent);
+    //    if(spot >= 0) immediately_open_spaces = immediately_open_spaces | spot;
+    //}
 
     int my_open_3s = __builtin_popcountll(my_possible_3s & open_spaces);
     int op_open_3s = __builtin_popcountll(op_possible_3s & open_spaces);
 
-    int my_threats = __builtin_popcountll(my_possible_3s & immediately_open_spaces);
-    int op_threats = __builtin_popcountll(op_possible_3s & immediately_open_spaces);
+    //int my_threats = __builtin_popcountll(my_possible_3s & immediately_open_spaces);
+    //int op_threats = __builtin_popcountll(op_possible_3s & immediately_open_spaces);
 
     print_board(my_possible_3s & open_spaces, 0);
     printf("\n");
     print_board(0, op_possible_3s & open_spaces);
     printf("\n");
-    printf("%u\n", __builtin_popcountll(my_possible_3s & open_spaces));
-    printf("%u\n\n", __builtin_popcountll(op_possible_3s & open_spaces));
+    printf("%u\n", my_open_3s);
+    printf("%u\n\n", op_open_3s);
 }
 
 
@@ -343,6 +344,7 @@ vector<double> Connect4AI::minimax_root(uint64_t player, uint64_t opponent, vect
     if(forced >= 0){
         printf("Forced: %u", forced);
         vector<double> out_f = {NULL, (double)forced};
+        return out_f;
     }
 
     vector<int> moves = moves_available(player, opponent);
