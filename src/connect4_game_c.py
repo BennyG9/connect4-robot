@@ -51,6 +51,7 @@ class Connect4Game:
 
         t = time.time() - t
         self.runtime.append(t)
+        print(f"RUNTIME: {t}")
         self.update_depth()
         return c
 
@@ -62,7 +63,7 @@ class Connect4Game:
 
         self.depth = self.base_depth + full_cols**2 + int(0)
 
-        print(num_moves, full_cols, self.depth)
+        #print(num_moves, full_cols, self.depth)
         pass
 
     def check_win(self):
