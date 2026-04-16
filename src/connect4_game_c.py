@@ -17,6 +17,7 @@ class Connect4Game:
         self.player = 0
         self.opponent = 0
         self.depth = start_depth
+        self.base_depth = start_depth
         if(start_turn == 0):
             self.turn = (-1) ** rand.randint(0,1)
         else:
@@ -28,16 +29,20 @@ class Connect4Game:
         #print(c)
         self.player = self.player | c
         self.turn *= -1
+        self.update_depth()
         pass
 
     def computer_move(self):
+
+        print(f"DEPTH: {self.depth}")
+
         t = time.time()
 
         val, c = (self.gameAI.minimax_root(self.opponent, self.player, self.gameAI.get_def_weights(), self.depth))
         c = int(c)
 
 
-        print(c, val)
+        #print(c, val)
 
         self.opponent = self.opponent | self.gameAI.get_move(c, self.player, self.opponent)
         self.turn *= -1
@@ -51,7 +56,13 @@ class Connect4Game:
 
     def update_depth(self):
         board = self.player | self.opponent
-        num_moves = 2 * len(self.runtime)
+
+        num_moves = board.bit_count()
+        full_cols = 7 - len(self.gameAI.moves_available(self.player, self.opponent))
+
+        self.depth = self.base_depth + full_cols**2 + int(0)
+
+        print(num_moves, full_cols, self.depth)
         pass
 
     def check_win(self):

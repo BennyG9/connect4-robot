@@ -26,5 +26,6 @@ PYBIND11_MODULE(connect4ai, m){
     .def("fill_feat_vec", &Connect4AI::fill_feat_vec)
     .def("wins", &Connect4AI::wins)
     .def("debug", &Connect4AI::debug)
+    .def("moves_available", &Connect4AI::moves_available)
     .def("model_query", &Connect4AI::model_query);
 }
