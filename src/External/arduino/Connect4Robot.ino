@@ -52,13 +52,14 @@ class Sensor{
   private: 
     int pin; 
     float threshold;
+    float threshold_offset;
     float alpha = 0.5;
     float prevEMA = 0;
 
   public:
-    Sensor(int analogPin, int thresh){
+    Sensor(int analogPin, float thresh_offset){
       pin = analogPin;
-      threshold = thresh; 
+      threshold_offset = thresh_offset;
     }
 
     int digRead(){
@@ -77,28 +78,47 @@ class Sensor{
     }
 
     int digEMARead(){
-      return EMARead() < threshold;
+      //int reading = EMARead() < threshold;
+      //return reading;
+
+      int sensorReading = anRead();
+      float ema = alpha*sensorReading + (1-alpha)*prevEMA;
+      float first_diff = ema - prevEMA; 
+
+      prevEMA = ema;
+      
+      // Serial.print("EMA:");
+      // Serial.print(ema);
+      // Serial.print(",");
+      // Serial.print("first_difference:");
+      // Serial.print(first_diff);
+      // Serial.print(",");
+      // Serial.print("Threshold:");
+      // Serial.print(threshold);
+      // Serial.print(",");
+      //Serial.print("DIG_READING:");
+      //Serial.println(first_diff < threshold);
+
+      return first_diff < threshold;
     }
 
     void setThreshold(){
-      float minReading = 256;
+      float minReading = 1024;
       for(int i = 0; i < 500; i++){
-        float reading = EMARead();
+        //float reading = EMARead();
+        int sensorReading = anRead();
+        float ema = alpha*sensorReading + (1-alpha)*prevEMA;
+        float first_diff = ema - prevEMA;
+        prevEMA = ema;
         if(i >= 50){
-          if(reading < minReading){
-            minReading = reading;
+          if(first_diff < minReading){
+            minReading = first_diff;
           }
         }
       }
-      // int minReading_int = (int)minReading;
-      // if(minReading_int < minReading){
-      //   threshold = minReading_int - 2;
-      // }else{
-      //   threshold = minReading_int - 3;
-      // }
-      threshold = minReading - 4.0;
-      Serial.print("Threshold: ");
-      Serial.println(threshold);
+      threshold = minReading - threshold_offset;
+      //Serial.print("Threshold: ");
+      //Serial.println(threshold);
     }
 };
 
@@ -142,7 +162,7 @@ enum Command {
 };
 
 //Sensors 
-Sensor sensorList[7] = {Sensor(A0,26), Sensor(A1,30), Sensor(A2,27), Sensor(A3,26), Sensor(A4,30), Sensor(A5,30), Sensor(A6,25)};
+Sensor sensorList[7] = {Sensor(A0,3.0), Sensor(A1,3.0), Sensor(A2,3.0), Sensor(A3,3.0), Sensor(A4,3.0), Sensor(A5,3.0), Sensor(A6,3.0)};
 
 //control state
 enum State {
@@ -166,9 +186,11 @@ void sendPacket(int cmd, int arg){
 
 void setup() {
   Serial.begin(9600);
-  Serial.println("STARTED");
+  
   cartServo.attach(cartServoPin);
   cartServo.write(10);
+
+  delay(2000); //delay for reset if needed
 
   delay(1);
   for(int s = 0; s < 7; s++){
@@ -176,42 +198,15 @@ void setup() {
   }
 
   currentState = IDLE;
+
+  Serial.println("STARTED");
 }
 
 
 void loop() {
   // put your main code here, to run repeatedly:
   
-  // noInterrupts();
-  // long newCount = myEnc.read();
-  // interrupts();
-  // if(newCount != encCount){
-  //   if(newCount - encCount > 0){
-  //     //Serial.println("-1");
-  //   }
-  //   encCount = newCount;
-  //   double pos = encCount * 1.25 / 4.0;
-  //   //Serial.println(encCount);
-  // }
-  //Serial.println(analogRead(A6));
-  // if(digitalRead(8)){
-  //   Serial.println(1);
-  // }
-  //Serial.println(digitalRead(8));
-  // Serial.print(digitalRead(8));
-  // Serial.print("  ");
-  // Serial.println(digitalRead(9));
-
-  //Serial.println("loop");
-  // for(int s = 0; s < 7; s++){
-  //  //Serial.print(sensorList[s].EMARead());
-  //  //Serial.print("\t");
-  //  if(sensorList[s].digEMARead()){
-  //   Serial.println(s);
-  //   delay(500);
-  //  }
-  // }
-  //Serial.println("\n");
+  
 
   switch(currentState){
     case IDLE:
