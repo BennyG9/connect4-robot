@@ -13,7 +13,9 @@ def cleanup(serial=None):
 
 def run_robot(serial, game):
 
-    game.new_game(start_depth=7)
+    game.new_game(start_turn=1, start_depth=7)
+
+    game.print_game()
 
     if(game.turn == 1): print("Player's turn...")
     else: print("Computer's turn...")
@@ -49,6 +51,7 @@ def run_robot(serial, game):
                     #player's move detected
                     if(game.turn == 1):
                         game.player_move(arg) #input player's move
+                        game.print_game()
                         if(game.check_win() > 0):
                             print("Player wins!")
                             break;
@@ -70,9 +73,10 @@ def run_robot(serial, game):
                 move_packet = serial.make_packet("MOVE_TRAY", comp_move) #make move packet
                 drop_packet = serial.make_packet("DROP_TRAY", 0x00) #make drop piece packet
                 cal_packet = serial.make_packet("CAL_SENSORS", 0x00) #make calibrate sensors packet
-                print(move_packet)
-                print(drop_packet)
-                print(cal_packet)
+                #print(move_packet)
+                #print(drop_packet)
+                #print(cal_packet)
+                game.print_game()
                 serial.send_packet(move_packet) #run command on Arduino
                 serial.send_packet(drop_packet) #run command on Arduino
                 serial.send_packet(cal_packet) #run command on Arduino

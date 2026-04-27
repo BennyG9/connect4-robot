@@ -20,6 +20,7 @@ An autonomous robot designed to play Connect 4 against a human opponent using pi
 - Full system integration
 
 **In Progress / Unfinished:**
+- Dynamic depth updating
 - Thorough testing
 - Minimax heuristic NES optimization
 

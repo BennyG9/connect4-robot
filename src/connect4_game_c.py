@@ -61,9 +61,9 @@ class Connect4Game:
         num_moves = board.bit_count()
         full_cols = 7 - len(self.gameAI.moves_available(self.player, self.opponent))
 
-        self.depth = self.base_depth + full_cols**2 + int(0)
+        self.depth = self.base_depth + full_cols**2 + int(num_moves/10)
 
-        #print(num_moves, full_cols, self.depth)
+        print(num_moves, full_cols, self.depth)
         pass
 
     def check_win(self):
