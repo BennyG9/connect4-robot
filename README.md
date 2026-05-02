@@ -47,4 +47,4 @@ _Sensor circuitry prototyping (11/19/2025)_
 ![Sensor prototyping photo](media/sensors-prototyping.jpg)
 
 ## Status 
-**Active development** - updated regularly. 
+**Not Currently In Development**
