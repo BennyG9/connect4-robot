@@ -36,6 +36,7 @@ An autonomous robot designed to play Connect 4 against a human opponent using pi
 - `src/old/` - Scripts and definitions no longer in use, old python implementations
 - `src/External/arduino/` - Embedded Arduino C++ code for motor control and reading sensors
 - `src/External/game_ai/` - Python-based Connect 4 game logic and minimax AI, including NES weight optimization algorithm
+- `src/External/filter/` - MATLAB script for IR sensing filter frequency response, phase response, pole-zero, sample signal filtering analysis
 
 ## Media
 _Mechanical prototype. Click for video demo (11/13/2025)_
