@@ -10,6 +10,17 @@ An autonomous robot designed to play Connect 4 against a human opponent using pi
 - Physical PID actuation to place game pieces
 - Enable human-vs-robot interface and gameplay
 
+## How it Works
+**Mechanical Design**
+
+**Control System**
+
+**Sensing**
+
+**Gameplay**
+
+**Embedded**
+
 ## Current Progress
 **Completed:** 
 - Mechanical design and PID controls
