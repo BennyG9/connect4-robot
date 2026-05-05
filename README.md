@@ -1,6 +1,4 @@
-# Connect 4 Playing Robot (Ongoing)
-
-**This project is currently under active development.**
+# Connect 4 Playing Robot
 
 An autonomous robot designed to play Connect 4 against a human opponent using piece sensing, game AI, and electromechanical actuation. 
 
