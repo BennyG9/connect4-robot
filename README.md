@@ -11,15 +11,15 @@ An autonomous robot designed to play Connect 4 against a human opponent using pi
 - Enable human-vs-robot interface and gameplay
 
 ## How it Works
-**Mechanical Design**
+**Mechanical Design:**
 
-**Control System**
+**Control System:**
 
-**Sensing**
+**Sensing:**
 
-**Gameplay**
+**Gameplay:**
 
-**Embedded**
+**Embedded:**
 
 ## Current Progress
 **Completed:** 
