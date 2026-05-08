@@ -31,7 +31,6 @@ The game piece delivery system consists of a two-part cart mechanism driven alon
 
 The timing belt is driven by a low-cost DC motor coupled to a 25:1 gearbox, providing sufficient torque and positional precision for repeatable piece placement.
 
----
 
 ### Motion Control System
 
@@ -48,9 +47,8 @@ The control loop runs on the Arduino Nano and continuously:
 
 This approach enabled accurate and repeatable alignment with each Connect-4 column despite drivetrain backlash and motor inconsistencies.
 
----
 
-## Sensor Processing
+### Sensor Processing
 
 Each column funnel contains an IR sensor used to detect when a game piece passes through the funnel.
 
@@ -70,9 +68,8 @@ Filter design and analysis were performed in MATLAB, including:
 
 Relevant MATLAB scripts can be found in `src/External/filter/`.
 
----
 
-## Game AI
+### Game AI
 
 The robot uses a pruned Minimax search algorithm with a linear board-state evaluation function to determine moves.
 
@@ -86,9 +83,8 @@ Key features include:
 
 This implementation achieves a baseline search depth of **7 moves**, with deeper searches possible during later stages of gameplay.
 
----
 
-## Embedded System Architecture
+### Embedded System Architecture
 
 The robot is built around a distributed embedded architecture consisting of:
 
@@ -115,18 +111,15 @@ This architecture separates high-level computation from timing-critical control 
 
 This division allowed reliable real-time motion control while still supporting computationally intensive AI search algorithms.
 
----
-
-## Software Stack
+### Software Stack
 
 * C++: Game engine, Minimax implementation, multithreading
 * Arduino C/C++: Embedded firmware and control systems
 * MATLAB: DSP filter analysis and visualization
 * Python: High-level Raspberry Pi integration utilities
 
----
 
-## Engineering Focus Areas
+### Engineering Focus Areas
 
 This project involved substantial work in:
 
