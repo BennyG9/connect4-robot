@@ -10,7 +10,7 @@ An autonomous robot designed to play Connect 4 against a human opponent using pi
 
 ## How it Works
 **Mechanical Design:**
-The piece cart is made up of two parts: the tray, free to rotate about a single rod, and the servo car which tilts the free-moving tray to slide the piece into the column funnels. This cart is attached to a GT2 timing belt which is pulled by a cheap DC motor geared down with a ratio of 25:1. 
+\nThe piece cart is made up of two parts: the tray, free to rotate about a single rod, and the servo car which tilts the free-moving tray to slide the piece into the column funnels. This cart is attached to a GT2 timing belt which is pulled by a cheap DC motor geared down with a ratio of 25:1. 
 **Control System:**
 
 **Sensing:**
