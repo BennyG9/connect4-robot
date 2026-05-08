@@ -3,7 +3,7 @@
 An autonomous robot designed to play Connect 4 against a human opponent using piece sensing, game AI, and electromechanical actuation. 
 
 <div align="center">
-  <img src="media/robot_demo.jpg" width="400"/>
+  <img src="media/robot_demo.jpg" width="300"/>
 </div>
 
 ## Project Goals
@@ -23,7 +23,9 @@ The game piece delivery system consists of a two-part cart mechanism driven alon
 
 The timing belt is driven by a low-cost DC motor coupled to a 25:1 gearbox, providing sufficient torque and positional precision for repeatable piece placement.
 
-<img src="media/gearbox.jpeg" width="400"/>
+<div align="center">
+  <img src="media/gearbox.jpeg" width="400"/>
+</div>
 
 ### Motion Control System
 
@@ -60,10 +62,10 @@ Filter design and analysis were performed in MATLAB, including:
 
 Relevant MATLAB scripts can be found in `src/External/filter/`.
 
-<p>
+<div align="center">
   <img src="media/freq_response.jpg" width="400"/>
   <img src="media/signal_sim.jpg" width="400"/>
-</p>
+</div>
 
 
 ### Game AI
@@ -110,7 +112,9 @@ This architecture separates high-level computation from timing-critical control 
 
 This division allowed reliable real-time motion control while still supporting computationally intensive AI search algorithms.
 
-<img src="media/embedded.jpeg" width="400"/>
+<div align="center">
+  <img src="media/embedded.jpeg" width="400"/>
+</div>
 
 ### Software Stack
 
