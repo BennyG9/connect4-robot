@@ -18,6 +18,7 @@ An IR sensor is embedded in each funnel of the robot, and the signals are fed di
 **Gameplay:** <br>
 The robot makes its move-making decisions using a pruned Minimax algorithm with a linear game-state evaluator. The Minimax code is run in optimized C++ code and threaded to parallelize branch traversal. This approach was able to achieve a base search depth of 7 moves, and depth is dynamically increased as the search tree gets smaller throughout the game.<br><br>
 **Embedded:** <br>
+The robot consists of a Raspberry Pi, Arduino Nano, and custom motor driver. 
 
 
 ## Current Progress
