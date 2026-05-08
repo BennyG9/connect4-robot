@@ -2,7 +2,7 @@
 
 An autonomous robot designed to play Connect 4 against a human opponent using piece sensing, game AI, and electromechanical actuation. 
 
-![Demo Photo](media/robot_demo.jpg)
+![Demo Photo](media/robot_demo.jpeg)
 
 ## Project Goals
 - Detect and map Connect 4 board state using sensors
@@ -105,7 +105,7 @@ This architecture separates high-level computation from timing-critical control 
 
 This division allowed reliable real-time motion control while still supporting computationally intensive AI search algorithms.
 
-![Embedded ircuit Prototype](media/embedded.jpeg)
+![Embedded Circuit Prototype](media/embedded.jpeg)
 
 ### Software Stack
 
