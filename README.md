@@ -51,13 +51,14 @@ Filter design and analysis were performed in MATLAB, including:
 
 * Frequency response analysis
 * Pole-zero analysis
-* Magnitude response evaluation
-* Noise rejection verification
+* Sample signal filtering simulation
 
 Relevant MATLAB scripts can be found in `src/External/filter/`.
 
 
 ### Game AI
+
+Game states are represented using 64 bit unsigned integer bitboards for efficient memory and operation speed. 
 
 The robot uses a pruned Minimax search algorithm with a linear board-state evaluation function to determine moves.
 
