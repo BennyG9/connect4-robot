@@ -166,7 +166,7 @@ This project involved substantial work in:
 -  Custom PCB design
 -  Design piece magazine and automatic loader for fully autonomous gameplay
 
-## Media
+## Old Media
 _Mechanical prototype. Click for video demo (11/13/2025)_
 
 [![Piece dropping prototyping](media/connect-4-prototype-thumbnail.jpg)](https://youtu.be/RXw5a7y7fcY)
