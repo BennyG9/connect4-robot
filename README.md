@@ -6,7 +6,7 @@ An autonomous robot designed to play Connect 4 against a human opponent using pi
   <img src="media/robot_demo.jpg" width="300"/>
 </div>
 
-Here are some videos demonstrating the robot in action: 
+<br>Here are some videos demonstrating the robot in action: 
 - [Watch Demo 1 (short game)]()
 - [Watch Demo 2 (long game)]()
 
