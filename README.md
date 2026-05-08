@@ -105,7 +105,7 @@ This architecture separates high-level computation from timing-critical control 
 
 This division allowed reliable real-time motion control while still supporting computationally intensive AI search algorithms.
 
-![Embedded ircuit Prototype](media/embedded.jpg)
+![Embedded ircuit Prototype](media/embedded.jpeg)
 
 ### Software Stack
 
