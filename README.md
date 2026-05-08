@@ -20,9 +20,9 @@ The robot makes its move-making decisions using a pruned Minimax algorithm with 
 **Embedded:** <br>
 The robot consists of a Raspberry Pi, Arduino Nano, and custom SN75441 IC motor driver circuit. The RPi and Arduino communicate using a custom UART packet protocol. Packets consist of 4 bytes: a start indicator, command id, argument, and checksum byte. This way, the Arduino can do real-time control and sensor monitoring, send information back to the Raspberry pi where all of the high-level decisions are made, then the RPi sends a command back to the Arduino telling it what to do.  
 
-# How It Works
+## How It Works
 
-## Mechanical Design
+### Mechanical Design
 
 The game piece delivery system consists of a two-part cart mechanism driven along the board using a GT2 timing belt. The cart is composed of:
 
@@ -33,7 +33,7 @@ The timing belt is driven by a low-cost DC motor coupled to a 25:1 gearbox, prov
 
 ---
 
-## Motion Control System
+### Motion Control System
 
 Because the drivetrain uses a low-cost brushed DC motor rather than a stepper motor, a custom closed-loop positioning system was developed.
 
