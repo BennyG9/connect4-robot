@@ -73,7 +73,7 @@ Relevant MATLAB scripts can be found in `src/External/filter/`.
 
 ### Game AI
 
-Game states are represented using 64 bit unsigned integer bitboards for efficient memory and operation speed. 
+Game states are represented using 64-bit bitboard representation using unsigned integers for efficient memory and operation speed. 
 
 The robot uses a pruned Minimax search algorithm with a linear board-state evaluation function to determine moves.
 
@@ -141,6 +141,13 @@ This project involved substantial work in:
 * Game AI development
 * Custom electronics design
 * System-level debugging and integration
+
+## System Performance Summary
+- Closed-loop PID card positioning using encoder feedback
+- **~0.625 mm** effective positioning resolution
+- Baseline **depth 7** Minimax search on Raspberry Pi
+- Real-time IR-based piece detection using filtered ADC signals
+- Distributed control between Raspberry Pi and Arduino Nano
 
 
 ## Code Structure
