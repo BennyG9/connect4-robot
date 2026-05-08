@@ -24,7 +24,7 @@ The game piece delivery system consists of a two-part cart mechanism driven alon
 The timing belt is driven by a low-cost DC motor coupled to a 25:1 gearbox, providing sufficient torque and positional precision for repeatable piece placement.
 
 <div align="center">
-  <img src="media/gearbox.jpeg" width="400"/>
+  <img src="media/gearbox.jpeg" width="300"/>
 </div>
 
 ### Motion Control System
@@ -113,7 +113,7 @@ This architecture separates high-level computation from timing-critical control 
 This division allowed reliable real-time motion control while still supporting computationally intensive AI search algorithms.
 
 <div align="center">
-  <img src="media/embedded.jpeg" width="400"/>
+  <img src="media/embedded.jpeg" width="300"/>
 </div>
 
 ### Software Stack
