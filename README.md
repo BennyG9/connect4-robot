@@ -2,7 +2,9 @@
 
 An autonomous robot designed to play Connect 4 against a human opponent using piece sensing, game AI, and electromechanical actuation. 
 
-<img src="media/robot_demo.jpg" width="400"/>
+<div align="center">
+  <img src="media/robot_demo.jpg" width="400"/>
+</div>
 
 ## Project Goals
 - Detect and map Connect 4 board state using sensors
