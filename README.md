@@ -2,7 +2,7 @@
 
 An autonomous robot designed to play Connect 4 against a human opponent using piece sensing, game AI, and electromechanical actuation. 
 
-![Demo Photo](media/robot_demo.jpeg)
+![Demo Photo](media/robot_demo.jpg)
 
 ## Project Goals
 - Detect and map Connect 4 board state using sensors
@@ -21,7 +21,7 @@ The game piece delivery system consists of a two-part cart mechanism driven alon
 
 The timing belt is driven by a low-cost DC motor coupled to a 25:1 gearbox, providing sufficient torque and positional precision for repeatable piece placement.
 
-![Gearbox](media/gearbox.jpg)
+![Gearbox](media/gearbox.jpeg)
 
 ### Motion Control System
 
