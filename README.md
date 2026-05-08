@@ -6,6 +6,10 @@ An autonomous robot designed to play Connect 4 against a human opponent using pi
   <img src="media/robot_demo.jpg" width="300"/>
 </div>
 
+Here are some demo videos: 
+- [Watch Demo 1 (short game)]()
+- [Watch Demo 2 (long game)]()
+
 ## Project Goals
 - Detect and map Connect 4 board state using sensors
 - Implement game-playing AI using minimax algorithm and heuristics
