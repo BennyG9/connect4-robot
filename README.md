@@ -40,7 +40,7 @@ The control loop runs on the Arduino Nano and continuously:
 3. Executes PID corrections
 4. Adjusts motor drive signals in real time
 
-This approach enabled accurate and repeatable alignment with each Connect-4 column despite drivetrain backlash and motor inconsistencies.
+This approach enabled accurate and repeatable alignment with each Connect 4 column despite drivetrain backlash and motor inconsistencies.
 
 <div align="center">
   <img src="media/gearbox.jpeg" width="300"/>
@@ -73,7 +73,7 @@ Relevant MATLAB scripts can be found in `src/External/filter/`.
 
 ### Game AI
 
-Game states are represented using 64-bit bitboard representation using unsigned integers for efficient memory and operation speed. 
+Game states are represented by 64-bit bitboard using unsigned integers for efficient memory and operation speed. 
 
 The robot uses a pruned Minimax search algorithm with a linear board-state evaluation function to determine moves.
 
@@ -143,7 +143,7 @@ This project involved substantial work in:
 * System-level debugging and integration
 
 ## System Performance Summary
-- Closed-loop PID card positioning using encoder feedback
+- Closed-loop PID cart positioning using encoder feedback
 - **~0.625 mm** effective positioning resolution
 - Baseline **depth 7** Minimax search on Raspberry Pi
 - Real-time IR-based piece detection using filtered ADC signals
@@ -152,7 +152,7 @@ This project involved substantial work in:
 
 ## Code Structure
 - `Connect4_Robot_main.py` - Main python file to run system
-- `build.sh` - Compiles C++ code into `src/build/`, requires moving `.so` file into `src/` once build is complete
+- `build.sh` - Compiles C++ code into `src/build/`, requires moving `.so` file into `src/` after build completion
 - `tests/` - Scripts used to for testing and debugging of various features, not documented
 - `src/` - Contains all files used directly, files for compiling C++ code
 - `src/old/` - Scripts and definitions no longer in use, old python implementations
