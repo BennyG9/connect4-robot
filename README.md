@@ -23,10 +23,6 @@ The game piece delivery system consists of a two-part cart mechanism driven alon
 
 The timing belt is driven by a low-cost DC motor coupled to a 25:1 gearbox, providing sufficient torque and positional precision for repeatable piece placement.
 
-<div align="center">
-  <img src="media/gearbox.jpeg" width="300"/>
-</div>
-
 ### Motion Control System
 
 Because the drivetrain uses a low-cost brushed DC motor rather than a stepper motor, a custom closed-loop positioning system was developed.
@@ -42,6 +38,9 @@ The control loop runs on the Arduino Nano and continuously:
 
 This approach enabled accurate and repeatable alignment with each Connect-4 column despite drivetrain backlash and motor inconsistencies.
 
+<div align="center">
+  <img src="media/gearbox.jpeg" width="300"/>
+</div>
 
 ### Sensor Processing
 
