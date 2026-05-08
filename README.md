@@ -10,13 +10,13 @@ An autonomous robot designed to play Connect 4 against a human opponent using pi
 
 ## How it Works
 **Mechanical Design:**\
-The piece cart is made up of two parts: the tray, free to rotate about a single rod, and the servo car which tilts the free-moving tray to slide the piece into the column funnels. This cart is attached to a GT2 timing belt which is pulled by a cheap DC motor geared down with a ratio of 25:1.\ \
+The piece cart is made up of two parts: the tray, free to rotate about a single rod, and the servo car which tilts the free-moving tray to slide the piece into the column funnels. This cart is attached to a GT2 timing belt which is pulled by a cheap DC motor geared down with a ratio of 25:1.<br>
 **Control System:**\
-Since I was using a cheap DC motor, I needed to create a custom encoding setup. Using a quadrature encoder with a 16 slot encoder wheel attached to the output shaft of the gearbox, I was able to achieve a resolution of about 0.625 mm with the PID control system.\ \
+Since I was using a cheap DC motor, I needed to create a custom encoding setup. Using a quadrature encoder with a 16 slot encoder wheel attached to the output shaft of the gearbox, I was able to achieve a resolution of about 0.625 mm with the PID control system.\
 **Sensing:**\
-An IR sensor is embedded in each funnel of the robot, and the signals are fed directly into the ADC inputs of the Arduino. The digital data is put through an Exponential Moving Average (EMA) filter to cut off the high frequency noise, then through a first difference filter to for edge detection. Frequency response, pole-zero, and other filter analysis was done in MATLAB (see `src/External/filter/`).\ \
+An IR sensor is embedded in each funnel of the robot, and the signals are fed directly into the ADC inputs of the Arduino. The digital data is put through an Exponential Moving Average (EMA) filter to cut off the high frequency noise, then through a first difference filter to for edge detection. Frequency response, pole-zero, and other filter analysis was done in MATLAB (see `src/External/filter/`).\
 **Gameplay:**\
-The robot makes its move-making decisions using a pruned Minimax algorithm with a linear game-state evaluator. The Minimax code is run in optimized C++ code and threaded to parallelize branch traversal. This approach was able to achieve a base search depth of 7 moves, and depth is dynamically increased as the search tree gets smaller throughout the game.\ \
+The robot makes its move-making decisions using a pruned Minimax algorithm with a linear game-state evaluator. The Minimax code is run in optimized C++ code and threaded to parallelize branch traversal. This approach was able to achieve a base search depth of 7 moves, and depth is dynamically increased as the search tree gets smaller throughout the game.\
 **Embedded:**\
 
 
