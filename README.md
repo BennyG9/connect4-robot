@@ -18,7 +18,7 @@ An IR sensor is embedded in each funnel of the robot, and the signals are fed di
 **Gameplay:** <br>
 The robot makes its move-making decisions using a pruned Minimax algorithm with a linear game-state evaluator. The Minimax code is run in optimized C++ code and threaded to parallelize branch traversal. This approach was able to achieve a base search depth of 7 moves, and depth is dynamically increased as the search tree gets smaller throughout the game.<br><br>
 **Embedded:** <br>
-The robot consists of a Raspberry Pi, Arduino Nano, and custom motor driver. 
+The robot consists of a Raspberry Pi, Arduino Nano, and custom SN75441 IC motor driver circuit. The RPi and Arduino communicate using a custom UART packet protocol. Packets consist of 4 bytes: a start indicator, command id, argument, and checksum byte. This way, the Arduino can do real-time control and sensor monitoring, send information back to the Raspberry pi where all of the high-level decisions are made, then the RPi sends a command back to the Arduino telling it what to do.  
 
 
 ## Current Progress
