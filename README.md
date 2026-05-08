@@ -152,7 +152,7 @@ This project involved substantial work in:
 
 ## Code Structure
 - `Connect4_Robot_main.py` - Main python file to run system
-- `build.sh` - Compiles C++ code into `src/build/`, user must move .so file into `src/` once built
+- `build.sh` - Compiles C++ code into `src/build/`, requires moving `.so` file into `src/` once build is complete
 - `tests/` - Scripts used to for testing and debugging of various features, not documented
 - `src/` - Contains all files used directly, files for compiling C++ code
 - `src/old/` - Scripts and definitions no longer in use, old python implementations
