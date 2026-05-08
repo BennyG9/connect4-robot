@@ -124,7 +124,17 @@ This project involved substantial work in:
 * System-level debugging and integration
 
 
-## Current Progress
+## Code Structure
+- `Connect4_Robot_main.py` - Main python file to run system
+- `build.sh` - Compiles C++ code into `src/build/`, user must move .so file into `src/` once built
+- `tests/` - Scripts used to for testing and debugging of various features, not documented
+- `src/` - Contains all files used directly, files for compiling C++ code
+- `src/old/` - Scripts and definitions no longer in use, old python implementations
+- `src/External/arduino/` - Embedded Arduino C++ code for motor control and reading sensors
+- `src/External/game_ai/` - Python-based Connect 4 game logic and minimax AI, including NES weight optimization algorithm
+- `src/External/filter/` - MATLAB script for IR sensing filter frequency response, phase response, pole-zero, sample signal filtering analysis
+
+## Status
 **Completed:** 
 - Mechanical design and PID controls
 - Game logic and bitboard representation
@@ -140,16 +150,6 @@ This project involved substantial work in:
 -  Custom PCB design
 -  Design piece magazine and automatic loader for fully autonomous gameplay
 
-## Code Structure
-- `Connect4_Robot_main.py` - Main python file to run system
-- `build.sh` - Compiles C++ code into `src/build/`, user must move .so file into `src/` once built
-- `tests/` - Scripts used to for testing and debugging of various features, not documented
-- `src/` - Contains all files used directly, files for compiling C++ code
-- `src/old/` - Scripts and definitions no longer in use, old python implementations
-- `src/External/arduino/` - Embedded Arduino C++ code for motor control and reading sensors
-- `src/External/game_ai/` - Python-based Connect 4 game logic and minimax AI, including NES weight optimization algorithm
-- `src/External/filter/` - MATLAB script for IR sensing filter frequency response, phase response, pole-zero, sample signal filtering analysis
-
 ## Media
 _Mechanical prototype. Click for video demo (11/13/2025)_
 
@@ -159,5 +159,3 @@ _Sensor circuitry prototyping (11/19/2025)_
 
 ![Sensor prototyping photo](media/sensors-prototyping.jpg)
 
-## Status 
-**Not Currently In Development**
