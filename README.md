@@ -58,8 +58,11 @@ Filter design and analysis were performed in MATLAB, including:
 
 Relevant MATLAB scripts can be found in `src/External/filter/`.
 
-<img src="media/freq_response.jpg" width="400"/>
-<img src="media/signal_sim.jpg" width="400"/>
+<p>
+  <img src="media/freq_response.jpg" width="400"/>
+  <img src="media/signal_sim.jpg" width="400"/>
+</p>
+
 
 ### Game AI
 
